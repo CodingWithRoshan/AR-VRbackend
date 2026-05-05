@@ -11,7 +11,7 @@ cloudinary.config({
 /**
  * Upload a local file to Cloudinary (async-safe and structured)
  */
-const uploadOnCloudinary = async (localFilePath, folder = "blogs") => {
+const uploadOnCloudinary = async (localFilePath, folder = "foldername") => {
     if (!localFilePath) {
         return { success: false, error: "No file path provided" };
     }
