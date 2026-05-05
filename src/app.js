@@ -3,7 +3,6 @@ const helmet = require("helmet");
 const cors = require("cors");
 
 const authRoutes = require("./routes/auth.routes");
-const blogRoutes = require("./routes/blog.routes");
 const uploadRoutes = require("./routes/upload.routes");
 const { errorHandler } = require("./middlewares/error.middleware");
 
