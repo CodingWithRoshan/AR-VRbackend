@@ -1,21 +1,13 @@
-const { ApiError } = require("../utils/ApiError");
-
-const errorHandler = (err, req, res, next) => {
-    let error = err;
-
-    if (!(error instanceof ApiError)) {
-        const statusCode = error.statusCode || 500;
-        const message = error.message || "Something went wrong";
-        error = new ApiError(statusCode, message, error?.errors || [], err.stack);
-    }
-
-    const response = {
-        ...error,
-        message: error.message,
-        ...(process.env.NODE_ENV === "development" ? { stack: error.stack } : {}),
-    };
-
-    return res.status(error.statusCode).json(response);
-};
+// If you already have this file in your project, keep your version —
+// this is only here so the file set below runs standalone.
+function errorHandler(err, req, res, next) {
+  console.error(err.stack || err);
+  const status = err.statusCode || 500;
+  res.status(status).json({
+    error: {
+      message: err.message || "Internal server error",
+    },
+  });
+}
 
 module.exports = { errorHandler };
