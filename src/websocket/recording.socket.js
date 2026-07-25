@@ -8,7 +8,7 @@ const TMP_DIR = path.join(__dirname, "..", "tmp_recordings");
 if (!fs.existsSync(TMP_DIR)) fs.mkdirSync(TMP_DIR);
 
 // Keep this in sync with the origin list in app.js's cors() config
-const ALLOWED_ORIGINS = ["http://localhost:5173"];
+const ALLOWED_ORIGINS = ["http://localhost:5173", "https://birthday-chi-six-57.vercel.app"];
 
 function attachRecordingSocket(server) {
   const wss = new WebSocket.Server({ server, path: "/webrtc" });

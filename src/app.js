@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173","https://birthday-chi-six-57.vercel.app"],
     credentials: true,
   }),
   helmet({
@@ -25,7 +25,7 @@ app.use(
         imgSrc: ["'self'", "https:", "data:"],
         // Fixed: this now points at the port this server actually listens on
         // (was hardcoded to ws://localhost:8080, which matched nothing)
-        connectSrc: ["'self'", `ws://localhost:${PORT}`, "wss:"],
+        connectSrc: ["'self'", `ws:`, "wss:"],
       },
     },
   })
