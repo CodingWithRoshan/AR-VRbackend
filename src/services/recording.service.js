@@ -31,9 +31,7 @@ function finalizeAndUpload({ sessionId, filePath, writeStream, bytesWrittenRef }
 
       try {
         const result = await uploadWithRetry(filePath, sessionId);
-        console.log(result);
-        console.log(result.secure_url);
-        console.log("Cloudinary response:");
+ 
         console.dir(result, { depth: null }); fs.unlink(filePath, (err) => {
           if (err) console.error(`[${sessionId}] Failed to delete temp file:`, err);
         });
