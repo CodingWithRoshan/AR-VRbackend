@@ -31,10 +31,7 @@ function finalizeAndUpload({ sessionId, filePath, writeStream, bytesWrittenRef }
 
       try {
         const result = await uploadWithRetry(filePath, sessionId);
- 
-        console.dir(result, { depth: null }); fs.unlink(filePath, (err) => {
-          if (err) console.error(`[${sessionId}] Failed to delete temp file:`, err);
-        });
+
         resolve(result);
       } catch (err) {
         console.error(`[${sessionId}] Upload failed after retries. Full error:`, {
